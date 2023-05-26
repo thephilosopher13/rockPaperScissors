@@ -28,11 +28,17 @@ buttons.forEach(function(button) {
     if (playerChoiceValue == "paper" && computerChoiceValue == "scissors" || playerChoiceValue == "rock" && computerChoiceValue == "paper" || playerChoiceValue == "scissors" && computerChoiceValue == "rock") {
       computerScoreCount++;
       alert("You lose! " + computerChoiceValue + " beats " + playerChoiceValue + ".");
+      playerScore.textContent = "Player Score: " + playerScoreCount;
+      computerScore.textContent = "Computer Score: " + computerScoreCount;
     } else if (playerChoiceValue == "paper" && computerChoiceValue == "rock" || playerChoiceValue == "scissors" && computerChoiceValue == "paper" || playerChoiceValue == "rock" && computerChoiceValue == "scissors" ) {
       playerScoreCount++;
       alert("You Win! " + playerChoiceValue + " beats " + computerChoiceValue + ".");
+      playerScore.textContent = "Player Score: " + playerScoreCount;
+      computerScore.textContent = "Computer Score: " + computerScoreCount;
     } else if (playerChoiceValue == computerChoiceValue) {
       alert("Draw!");
+      playerScore.textcontent = "Player Score: " + playerScoreCount
+      computerScore.textContent = "Computer Score: " + computerScoreCount
     } else {
       alert("Invalid Input");
     }
