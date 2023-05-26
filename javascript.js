@@ -11,19 +11,27 @@ function getComputerChoice(array) {
     return computerChoice
   }
 
+function getId(e) {
+  const buttonId = e.target.id;
+  return buttonId;
+}
+
+const buttons = document.querySelectorAll(`button`);
+buttons.forEach(function(button) {
+  button.addEventListener('click', function(e) {
+    const myPlayerChoice = e.target.id;
+    console.log(buttonId);
+  });
+});
+
 var computerChoice = getComputerChoice(rockPaperScissorsArray)
 
-function getPlayerChoice() {
-  var playerChoiceInput = document.querySelector("[name='playerChoice']");;
-  var playerChoiceValue = playerChoiceInput.value;
-  var playerChoiceCaseInsensitive = playerChoiceValue.toLowerCase();
-  return playerChoiceCaseInsensitive;
-}
+
 
 function playRockPaperScissors() {
   
   let computerChoice = getComputerChoice(rockPaperScissorsArray);
-  let playerChoice = getPlayerChoice();
+  let playerChoice = 'rock';
 
   if (playerChoice == "paper" && computerChoice == "scissors" || playerChoice == "rock" && computerChoice == "paper" || playerChoice == "scissors" && computerChoice == "rock") {
     computerPoints++;
@@ -39,11 +47,6 @@ function playRockPaperScissors() {
   } else {
     alert("Invalid Input");
   }
-
-  if (roundsPlayed == 5) {
-    endGame = true;
-    gameFinished();
-  } 
 }
 
 function gameFinished() {
