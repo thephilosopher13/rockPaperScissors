@@ -12,15 +12,18 @@ function getComputerChoice(array) {
   }
 
 function getId(e) {
-  const buttonId = e.target.id;
-  return buttonId;
+  const getPlayerChoice = e.target.id;
+  return getPlayerChoice
 }
 
 const buttons = document.querySelectorAll(`button`);
 buttons.forEach(function(button) {
   button.addEventListener('click', function(e) {
-    const myPlayerChoice = e.target.id;
-    console.log(buttonId);
+    
+    let playerChoiceValue = getId(e);
+    let computerChoiceValue = getComputerChoice(rockPaperScissorsArray);
+
+
   });
 });
 
@@ -28,26 +31,23 @@ var computerChoice = getComputerChoice(rockPaperScissorsArray)
 
 
 
-function playRockPaperScissors() {
+// function playRockPaperScissors() {
   
-  let computerChoice = getComputerChoice(rockPaperScissorsArray);
-  let playerChoice = 'rock';
-
-  if (playerChoice == "paper" && computerChoice == "scissors" || playerChoice == "rock" && computerChoice == "paper" || playerChoice == "scissors" && computerChoice == "rock") {
-    computerPoints++;
-    roundsPlayed++;
-    alert("You lose! " + computerChoice + " beats " + playerChoice + ". Player Points: " + playerPoints + ", Computer Points: " + computerPoints + ". Rounds Played: " + roundsPlayed);
-  } else if (playerChoice == "paper" && computerChoice == "rock" || playerChoice == "scissors" && computerChoice == "paper" || playerChoice == "rock" && computerChoice == "scissors" ) {
-    playerPoints++;
-    roundsPlayed++;
-    alert("You Win! " + playerChoice + " beats " + computerChoice + ". Player Points: " + playerPoints + ", Computer Points: " + computerPoints + ". Rounds Played: " + roundsPlayed);
-  } else if (playerChoice == computerChoice) {
-    roundsPlayed++;
-    alert("Draw! Both of you picked " + playerChoice + ". Player Points: " + playerPoints + ", Computer Points: " + computerPoints + ". Rounds Played: " + roundsPlayed);
-  } else {
-    alert("Invalid Input");
-  }
-}
+//  if (playerChoice == "paper" && computerChoice == "scissors" || playerChoice == "rock" && computerChoice == "paper" || playerChoice == "scissors" && computerChoice == "rock") {
+//    computerPoints++;
+//    roundsPlayed++;
+//    alert("You lose! " + computerChoice + " beats " + playerChoice + ". Player Points: " + playerPoints + ", Computer Points: " + computerPoints + ". Rounds Played: " + roundsPlayed);
+//  } else if (playerChoice == "paper" && computerChoice == "rock" || playerChoice == "scissors" && computerChoice == "paper" || playerChoice == "rock" && computerChoice == "scissors" ) {
+//    playerPoints++;
+ //   roundsPlayed++;
+//    alert("You Win! " + playerChoice + " beats " + computerChoice + ". Player Points: " + playerPoints + ", Computer Points: " + computerPoints + ". Rounds Played: " + roundsPlayed);
+//  } else if (playerChoice == computerChoice) {
+//    roundsPlayed++;
+//    alert("Draw! Both of you picked " + playerChoice + ". Player Points: " + playerPoints + ", Computer Points: " + computerPoints + ". Rounds Played: " + roundsPlayed);
+//  } else {
+//    alert("Invalid Input");
+//  }
+// } // 
 
 function gameFinished() {
   if (endGame) {
