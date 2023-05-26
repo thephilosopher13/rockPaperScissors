@@ -4,24 +4,40 @@ const playerScore = document.querySelector('.playerScore')
 let playerScoreCount = 0
 const computerScore = document.querySelector('.computerScore')
 let computerScoreCount = 0
-var endGame = false;
 
 function getComputerChoice(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    var computerChoice = array[randomIndex];
-    return computerChoice
-  }
+  const randomIndex = Math.floor(Math.random() * array.length);
+  var computerChoice = array[randomIndex];
+  return computerChoice
+};
 
-  // function getId actually is there to get the choice of the player
 function getId(e) {
   const getPlayerChoice = e.target.id;
   return getPlayerChoice
+};
+
+// below code disables buttons and announces a winner when someone's score reaches 5
+
+function endGame() {
+  buttons.forEach(function(button) {
+    button.disabled = true;
+  });
+
+  const matchWinner = document.createElement('div');
+  matchWinner.classList.add('winner');
+
+  if (playerScoreCount >= 5) {
+    matchWinner.textContent = "Match Winner: Player";
+  } else {
+    matchWinner.textContent = "Match Winner: Computer";
+  }
+
+  document.body.appendChild(matchWinner);
 }
 
 const buttons = document.querySelectorAll(`button`);
 buttons.forEach(function(button) {
   button.addEventListener('click', function(e) {
-    
     let playerChoiceValue = getId(e);
     let computerChoiceValue = getComputerChoice(rockPaperScissorsArray);
 
@@ -37,13 +53,21 @@ buttons.forEach(function(button) {
       computerScore.textContent = "Computer Score: " + computerScoreCount;
     } else if (playerChoiceValue == computerChoiceValue) {
       alert("Draw!");
-      playerScore.textcontent = "Player Score: " + playerScoreCount
-      computerScore.textContent = "Computer Score: " + computerScoreCount
+      playerScore.textContent = "Player Score: " + playerScoreCount;
+      computerScore.textContent = "Computer Score: " + computerScoreCount;
     } else {
       alert("Invalid Input");
     }
+
+    if (playerScoreCount >= 5 || computerScoreCount >= 5) {
+      endGame();
+    }
   });
 });
+
+
+
+
 
 
 
